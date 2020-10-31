@@ -47,6 +47,20 @@ public class ProductoDAO {
             throwables.printStackTrace();
         }
     }
+    
+    
+    public void Borrar(){
+            try {
+            Statement statement = VariablesGlobales.conn.createStatement();
+            String consulta = " DELETE codigo, nombre,precio,existencia"+
+                              " FROM productos";
+            ResultSet rs = statement.executeQuery(consulta);
+       
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+ 
+    }
    
     
     

@@ -6,6 +6,8 @@
 <%@page import="java.util.List"%>
 <%@page import="modelo.ClienteIndividual"%>
 <%@page import="dao.ClienteIndividualDAO"%>
+<%@page import="modelo.Producto"%>
+<%@page import="dao.ProductoDAO"%>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -24,27 +26,46 @@
             
              <div class="container">
             
-                <label for="cliente">Seleccione Cliente</label>
-                    <select class="form-control">
-                       <option>fa fa-car aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
-                     </select>
-                </div>
+                <label for="cliente">Seleccione Cliente Individual</label>
+                  
+                <select class="form-control">
+                 <%
+            ClienteIndividualDAO clienteIndividualDAO = new ClienteIndividualDAO();
+            List<ClienteIndividual> clienteindividual = clienteIndividualDAO.getDBClienteindividual();
+            int i = 0;
+            for (ClienteIndividual cliente : clienteindividual) {
+            i++;
+            %> 
+            <option><%=cliente.getNombre()%></option>
+            <%
+                 }
+             %>  
+            </select>
+            
+            </div>
+             
+             <div class="container">
+                 <label for="Codigo">Seleccione Producto</label>
+                 <select class="form-control"input type="text"name="producto">
+                     <%
+                    ProductoDAO productoIndividualDAO = new ProductoDAO();
+                    List<Producto> productos = productoIndividualDAO.getDBProducto();
+                    int m=0; 
+                    for (Producto producto : productos){
+                    m++;
+                    %>
+                     <option><%=producto.getNombre()%> </option>
+                     <%
+                        }
+                    %>
+                 </select>
+             </div>
 
-                <div class="container">
-                    <label for="Codigo">Seleccione Producto</label>
-                    <select class="form-control">
-                        <option>     fa fa-car aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </option>
-                     </select>
-                </div>
-                    
-                    
-                     <div class="container">
-                      
-                    <label for="Codigo">indique cantidad</label>
-                    <select class="form-control">
-                        <option>     fa fa-car aaaa</option>
-                     </select>
-                    </div>
+                 <div class="container">
+                 <label for="Codigo">Seleccione Cantidad</label>
+                 <input type="text" class="form-control is-valid" name="Cantidad" id="Cantidad" placeholder=" ingrese cantidad">
+             </div>
+                
                       
                          
                   
