@@ -17,7 +17,7 @@
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body background="fondo4.gif">
 <%
             
             if (request.getParameter("btn_ingresar") != null) 
@@ -32,6 +32,7 @@
                 }
                 else
                 {
+                   
                     out.println("<script>alert('Usuario o contraseña incorrecta');</script>");
                 }
             }
