@@ -26,9 +26,9 @@
             
              <div class="container">
             
-                <label for="cliente">Seleccione Cliente Individual</label>
+                <label for="individual">Seleccione Cliente Individual</label>
                   
-                <select class="form-control">
+                <select class="form-control" name="individual"id="individual">
                  <%
             ClienteIndividualDAO clienteIndividualDAO = new ClienteIndividualDAO();
             List<ClienteIndividual> clienteindividual = clienteIndividualDAO.getDBClienteindividual();
@@ -43,10 +43,11 @@
             </select>
             
             </div>
-             
-             <div class="container">
-                 <label for="Codigo">Seleccione Producto</label>
-                 <select class="form-control"input type="text"name="producto">
+            
+                      
+                     <div class="container">
+                 <label for="producto">Seleccione Producto</label>
+                 <select class="form-control"input type="text"name="producto"id="producto">
                      <%
                     ProductoDAO productoIndividualDAO = new ProductoDAO();
                     List<Producto> productos = productoIndividualDAO.getDBProducto();
@@ -62,7 +63,7 @@
              </div>
 
                  <div class="container">
-                 <label for="Codigo">Seleccione Cantidad</label>
+                 <label for="Cantidad">Seleccione Cantidad</label>
                  <input type="text" class="form-control is-valid" name="Cantidad" id="Cantidad" placeholder=" ingrese cantidad">
              </div>
                 

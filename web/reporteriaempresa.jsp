@@ -36,8 +36,8 @@
             <th class="text-center">Action</th>
         </tr>
          <%
-          ClienteEmpresaDAO clienteIndividualDAO = new ClienteEmpresaDAO();
-          List<ClienteEmpresa> clienteempresa = clienteIndividualDAO.getDBClienteEmpresa();
+          ClienteEmpresaDAO clienteEmpresaDAO = new ClienteEmpresaDAO();
+          List<ClienteEmpresa> clienteempresa = clienteEmpresaDAO.getDBClienteEmpresa();
           int i=0; 
            for (ClienteEmpresa cliente :clienteempresa){
                i++;
