@@ -18,6 +18,24 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+<%
+            
+            if (request.getParameter("btn_ingresar") != null) 
+            {
+                String usuario = request.getParameter("usuario");
+                String password = request.getParameter("password");
+                
+               
+                if (usuario.equals("kcruzs")&&password.equals("123456"))
+                {
+                    response.sendRedirect("Menu.jsp");
+                }
+                else
+                {
+                    out.println("<script>alert('Usuario o contraseña incorrecta');</script>");
+                }
+            }
+        %>    
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -30,18 +48,19 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="ingrese usuario">
+						<input type="text" class="form-control"name="usuario" placeholder="ingrese usuario">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="ingrese contraseña">
+						<input type="password" class="form-control" name="password"placeholder="ingrese contraseña">
 					</div>
-					<div class="form-group">
-						<input type="submit" value="Ingresar" class="btn float-right login_btn">
+                                        <div class="form-group">
+					<input type="submit" value="Ingresar" name="btn_ingresar"class="btn float-right login_btn">
 					</div>
+                                        
 				</form>
 			</div>
 			<div class="card-footer">
@@ -52,4 +71,3 @@
 </div>
 </body>
 </html>
-

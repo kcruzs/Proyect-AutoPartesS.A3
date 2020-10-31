@@ -24,8 +24,7 @@
   
   <body>
       <h1>Ingreso de Nuevo Producto   </h1>
-    <br>
-    <br>
+
     <br>
     <%
     String Codigo  = request.getParameter("Codigo");

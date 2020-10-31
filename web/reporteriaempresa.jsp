@@ -44,7 +44,7 @@
         %>   
     
             <tr>
-                <<th scope="row"><%=cliente.getId()%></th>
+                <th scope="row"><%=cliente.getId()%></th>
                 <th><%=cliente.getNombre()%></th>
                 <th><%=cliente.getContacto()%></th>
                 <th><%=cliente.getDireccion()%></th>

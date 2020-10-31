@@ -26,8 +26,6 @@
   <body>
       <h1>Ingreso de Nuevo Cliente Empresa</h1>
     <br>
-    <br>
-    <br>
      <%
     String Id  = request.getParameter("Id");
     String Nombre  = request.getParameter("Nombre");

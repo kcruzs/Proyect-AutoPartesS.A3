@@ -3,7 +3,9 @@
     Created on : Oct 30, 2020, 4:37:51 PM
     Author     : kevincruz
 --%>
-
+<%@page import="java.util.List"%>
+<%@page import="modelo.OrdenCompra"%>
+<%@page import="dao.OrdenCompraDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -25,18 +27,27 @@
     <table class="table table-striped custab">
     <thead>
             <tr>
-            <th>Nombre Cliente</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
+            <th>NOMBRE CLIENTE</th>
+            <th>PRODCUTO</th>
+            <th>CANTIDAD</th>
             <th class="text-center">Opcion</th>
             </tr>
-            
+            <%
+            OrdenCompraDAO ordenCompraDAO = new OrdenCompraDAO();
+            List<OrdenCompra> ocompra = ordenCompraDAO.getDBOrdenCompra();
+            int i = 0;
+            for (OrdenCompra ocompras : ocompra) {
+                i++;
+            %> 
             <tr>
-            <th scope="row">Molinos Modernos</th>
-                <th>Llantas 185/65 R15</th>
-                <th>4</th>
+            <th scope="row"><%=ocompras.getNombrecliente()%></th>
+                <th><%=ocompras.getProducto()%></th>
+                <th><%=ocompras.getCantidad()%></th>
                 <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
+             <%
+            }
+             %>
             </thead>     
             </table>
         <br>

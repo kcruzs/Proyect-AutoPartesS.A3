@@ -109,6 +109,9 @@
                 
             </div>
         </div>
+        <form action="Login.jsp">
+            <p align="right"> <button type="submit" class="btn btn-secondary">Cerrar Sesion</button></p>
+        </form>
         <div class="col-sm-9 col-md-9">
             <div class="well">
                 <h1>
@@ -119,6 +122,7 @@
 
         </div>
     </div>
+    
 </div>
 
     

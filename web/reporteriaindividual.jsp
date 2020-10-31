@@ -32,7 +32,7 @@
             <th>NOMBRE</th>
             <th>DPI</th>
             <th>DIRECCION</th>
-            <th class="text-center">Action</th>
+            <th class="text-center">Opcion</th>
         </tr>
         <%
             ClienteIndividualDAO clienteIndividualDAO = new ClienteIndividualDAO();
