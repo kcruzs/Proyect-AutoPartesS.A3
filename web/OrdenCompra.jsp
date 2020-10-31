@@ -8,6 +8,8 @@
 <%@page import="dao.ClienteIndividualDAO"%>
 <%@page import="modelo.Producto"%>
 <%@page import="dao.ProductoDAO"%>
+<%@page import="modelo.OrdenCompra"%>
+<%@page import="dao.OrdenCompraDAO"%>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -19,16 +21,23 @@
         <title>Ordenes de Compras</title>
     </head>
     <body>
-        <div class="row">
+        
         <div class="col-lg-12">
         <h1 class="page-header">INGRESO DE ORDEN DE COMPRA</h1>
         </div>
+            <%
+            String individual  = request.getParameter("individual");
+            String productoindi  = request.getParameter("productoindi");
+            String Cantidad  = request.getParameter("Cantidad");
+             if (individual == null && productoindi == null && Cantidad == null){
             
+            %>
+       <form action="OrdenCompra.jsp" method="POST">
              <div class="container">
             
                 <label for="individual">Seleccione Cliente Individual</label>
                   
-                <select class="form-control" name="individual"id="individual">
+                <select name="individual" id="individual" class="form-control" >
                  <%
             ClienteIndividualDAO clienteIndividualDAO = new ClienteIndividualDAO();
             List<ClienteIndividual> clienteindividual = clienteIndividualDAO.getDBClienteindividual();
@@ -41,13 +50,13 @@
                  }
              %>  
             </select>
-            
+           
             </div>
             
                       
                      <div class="container">
-                 <label for="producto">Seleccione Producto</label>
-                 <select class="form-control"input type="text"name="producto"id="producto">
+                 <label for="productoindi">Seleccione Producto</label>
+                 <select name="productoindi" id="productoindi" class="form-control"input type="text">
                      <%
                     ProductoDAO productoIndividualDAO = new ProductoDAO();
                     List<Producto> productos = productoIndividualDAO.getDBProducto();
@@ -60,6 +69,7 @@
                         }
                     %>
                  </select>
+                
              </div>
 
                  <div class="container">
@@ -68,16 +78,30 @@
              </div>
                 
                       
-                         
-                  
-  
-       </div>      
-                   <br>    
+               <br>    
                     <center><button type="submit" class="btn btn-primary">GRABAR</button></center>
-                    <br>
+                    <br>          
+                  
+        </form>
+           <%
+         }else{
+        OrdenCompraDAO ordencompra = new OrdenCompraDAO();
+        OrdenCompra ocompra = new OrdenCompra(individual,productoindi,Integer.parseInt(Cantidad));
+        ordencompra.saveOrdenCompra(ocompra);
+     
+         %> 
+         <div class="alert alert-success" role="alert">
+                El Cliente fue creado con Exito <a href="reporteriacompras.jsp" class="alert-link">Ver Listado de Ordenes de Compra</a>. 
+        </div>
+            <%
+            }    
+            %>
+                   
                     <form action="Menu.jsp"><center>
                     <button type="submit" class="btn btn-secondary">Regresar Menu</button>
-                        </center>
-                    </form>
+                        </center> </form>
+                   
+                    
+                    
     </body>
 </html>

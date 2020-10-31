@@ -35,4 +35,16 @@ public class OrdenCompraDAO {
     }
     
     
+     public void saveOrdenCompra(OrdenCompra ordencompra){
+        try {
+            Statement statement = VariablesGlobales.conn.createStatement();
+            String dml = "INSERT INTO ordencompra (nombrecliente,producto,cantidad) VALUES("+
+                   ordencompra.getNombrecliente() +"'"+ ",'" + ordencompra.getProducto()+"'"+",'" + ordencompra.getCantidad()+ "')";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
 }
